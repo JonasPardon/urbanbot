@@ -15,7 +15,6 @@ client.on('ready', () => {
         }
     });
 
-    // urban.postServerCount(client);
     setInterval(() => {
         urban.postServerCount(client);
     }, 1000 * 60 * 30);
@@ -38,12 +37,40 @@ client.on('message', async (message) => {
 
     let args = message.content.split(" ");
 
+    if (message.content == `!random`) {
+        urban.log("random", message.author.username, message.guild.name);
+        urban.getRandom()
+            .then(r => {
+                const date = new Date(Date.parse(r.date));
+
+                embed.setFooter(`Definition by ${r.author} on ${date.toLocaleDateString()}`)
+                    .setAuthor(`Random Urban definition: ${r.term}`, client.user.avatarURL)
+                    .setDescription(r.definition)
+                    .setColor(0x00AE86)
+                    .addField("Example", `*${r.example}*\n\n[Direct link to definition](${r.link}) | [Upvote me](https://discordbots.org/bot/439102015969296387)`);
+
+                message.channel.send(embed)
+                    .catch(err => {
+                        message.channel.send('I need permission to post embeds!');
+                    });
+            })
+            .catch(err => {
+                embed.setDescription(err)
+                    .setColor(0xff0000);
+
+                message.channel.send(embed)
+                    .catch(err => {
+                        message.channel.send('I need permission to post embeds!');
+                    });
+            });
+    }
     if (!message.content.startsWith(prefix)) return;
     if (message.content == prefix) return message.reply(config.help);
 
     args.shift();
     const term = args.join(" ");
 
+    urban.log(`define ${term}`, message.author.username, message.guild.name);
     urban.findDefinition(term)
         .then(r => {
             const date = new Date(Date.parse(r.date));
@@ -68,6 +95,10 @@ client.on('message', async (message) => {
                     message.channel.send('I need permission to post embeds!');
                 });
         });
+});
+
+process.on('unhandledRejection', (reason, p) => {
+    console.log('Unhandled Rejection at: Promise', p, 'reason:', reason, 'stack', reason.stack);
 });
 
 client.login(config.token);
