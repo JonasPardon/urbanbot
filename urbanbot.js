@@ -28,7 +28,8 @@ client.on('message', async (message) => {
     if (message.author.id == "193767604932837378" && message.content == config.statsprefix) {
         const stats = await urban.getBotStats(client);
         embed.addField('Guilds', stats.guilds.toLocaleString(), true)
-            .addField('Users', stats.members.toLocaleString(), true);
+            .addField('Users', stats.members.toLocaleString(), true)
+            .setColor(0x0795e5);
         return message.channel.send(embed)
             .catch(err => {
                 message.channel.send('I need permission to post embeds!');
@@ -46,7 +47,7 @@ client.on('message', async (message) => {
                 embed.setFooter(`Definition by ${r.author} on ${date.toLocaleDateString()}`)
                     .setAuthor(`Random Urban definition: ${r.term}`, client.user.avatarURL)
                     .setDescription(r.definition)
-                    .setColor(0x00AE86)
+                    .setColor(0x0795e5)
                     .addField("Example", `*${r.example}*\n\n[Direct link to definition](${r.link}) | [Upvote me](https://discordbots.org/bot/439102015969296387)`);
 
                 message.channel.send(embed)
@@ -78,7 +79,7 @@ client.on('message', async (message) => {
             embed.setFooter(`Definition by ${r.author} on ${date.toLocaleDateString()}`)
                 .setAuthor(`Urban definition for '${term}'`, client.user.avatarURL)
                 .setDescription(r.definition)
-                .setColor(0x00AE86)
+                .setColor(0x0795e5)
                 .addField("Example", `*${r.example}*\n\n[Direct link to definition](${r.link}) | [Upvote me](https://discordbots.org/bot/439102015969296387)`);
 
             message.channel.send(embed)
