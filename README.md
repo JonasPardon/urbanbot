@@ -57,6 +57,6 @@ node .
 
 MIT
 
-## Acknowledegments
+## Acknowledgements
 
 * **Scott Evans** - Scotteh#0001: for getting me up to par on development in node.js. Thanks for teaching me loads buddy.
