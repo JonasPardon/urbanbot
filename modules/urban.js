@@ -18,11 +18,13 @@ exports.findDefinition = (term) => {
 
             if (r.result_type == "no_results") return reject(`Could not find any hits for '${term}', please try again!`);
 
-            const definition = r.list[0].definition;
-            const author = r.list[0].author;
-            const date = r.list[0].written_on;
-            const example = r.list[0].example;
-            const link = r.list[0].permalink;
+            let index = Math.floor(Math.random() * r.list.length);
+
+            const definition = r.list[index].definition;
+            const author = r.list[index].author;
+            const date = r.list[index].written_on;
+            const example = r.list[index].example;
+            const link = r.list[index].permalink;
 
             resolve({
                 definition: definition,
