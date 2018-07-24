@@ -7,6 +7,8 @@ I have no intentions of keeping this a running project, as there's only so much 
 
 If you'd like to get this bot in your server, you can add it [here](https://discordbots.org/bot/439102015969296387).
 
+[![Discord Bots](https://discordbots.org/api/widget/status/439102015969296387.svg)](https://discordbots.org/bot/439102015969296387)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
