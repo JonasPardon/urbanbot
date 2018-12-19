@@ -7,7 +7,7 @@ I have no intentions of keeping this a running project, as there's only so much 
 
 If you'd like to get this bot in your server, you can add it [here](https://discordbots.org/bot/439102015969296387).
 
-[![Discord Bots](https://discordbots.org/api/widget/status/439102015969296387.svg)](https://discordbots.org/bot/439102015969296387)
+[![Discord Bots](https://discordbots.org/api/widget/status/439102015969296387.svg)](https://discordbots.org/bot/439102015969296387) Update: bot is no longer publicly hosted, as I am not inclined to keep paying a server for this.
 
 ## Getting Started
 
